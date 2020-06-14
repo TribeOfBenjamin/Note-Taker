@@ -1,6 +1,6 @@
 // Dependencies
 const express = require("express");
-const path = path("path");
+const path = require("path");
 
 // Express App
 const app = express();
@@ -16,7 +16,9 @@ app.use(express.json());
 
 // Routes
 
-
+app.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "notes.html"));
+  });
 
 // Server Begins Listening
 app.listen(PORT, function() {
