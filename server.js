@@ -1,5 +1,4 @@
 // Dependencies
-const fs = require("fs");
 const express = require("express");
 const path = require("path");
 
@@ -12,11 +11,12 @@ const PORT = 3000;
 // Express App's Data Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 
 // Router
-require("./apiRoutes")(app);
-require("./htmlRoutes")(app);
+require("./public/apiRoutes")(app);
+require("./public/htmlRoutes")(app);
 
 
 // Server Begins Listening
