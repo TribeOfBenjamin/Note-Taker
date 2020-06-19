@@ -5,7 +5,7 @@ const path = require("path");
 
 // Express App
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Express App's Data Parsing
