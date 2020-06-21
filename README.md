@@ -10,4 +10,4 @@ The save button at the top right writes the note's title and text to a JSON file
 #1:
 ![#1](public/assets/images/home.png)
 #2:
-![#2](public/images/notes.png)
+![#2](public/assets/images/notes.png)
