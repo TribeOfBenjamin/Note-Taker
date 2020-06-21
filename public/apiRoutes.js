@@ -23,25 +23,26 @@ module.exports = function (app) {
             }
         );
 
-        // Below is intended to clear note upon save BUT doesn't
-        // $(".note-title").val("");
-        // $(".note-textarea").val("");
-
         res.json(newNote);
     });
 
-    // MY ATTEMPT AT DELETE
     app.delete("/api/notes/:id", function (req, res) {
-        let deletedNote = req.params.id;
+        let deletedNote = parseInt(req.params.id);
 
-        function deleteFunction(note) {
+        function deleteFunction() {
 
             for (let i = 0; i < notesData.length; i++) {
                 if (notesData[i].id === deletedNote) {
                     notesData[i].splice(i, 1);
-                }
-            }
-        }
+
+                    fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(notesData),
+                        err => {
+                            if (err) throw err;
+                        }
+                    );
+                };
+            };
+        };
         deleteFunction();
         res.json(notesData);
     });
